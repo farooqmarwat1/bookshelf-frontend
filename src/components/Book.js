@@ -11,7 +11,7 @@ const Book = ({ book }) => {
                 <Link to={`/book/${book._id}`} >
                     <Card.Img src={book1} style={{width:'100%',height: '250px'}} variant='top' />
                 </Link>
-
+                //card body
                 <Card.Body>
                     <Link to={`/book/${book._id}`}>
                         <Card.Title as='div' >
@@ -20,17 +20,19 @@ const Book = ({ book }) => {
                     </Link>
 
                     <Card.Text as='div' ><h5>Author:</h5> {book.author}</Card.Text>
-
-                    <Card.Text as='div' ><h5>Access:</h5> {book.access}</Card.Text>
+                    <Card.Text as='div' ><h6>Access:</h6> {book.access}</Card.Text>
 
                     <Card.Text as='div' >
                     <Rating value={book.rating} />
                     </Card.Text>
                 </Card.Body>
+
             </Card> 
         </>
     )
 };
+
+
 
 
 
