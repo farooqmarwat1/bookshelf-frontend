@@ -9,7 +9,7 @@ const Home = () => {
 
   useEffect(() => {
     const fetchPublicBooks = async () => {
-      const { data } = await axios.get('/api/');
+      const { data } = await axios.get('http://localhost:5000/');
       setPublicBooks(data);
     }
     fetchPublicBooks();
@@ -20,7 +20,7 @@ const Home = () => {
       <h1>Latest Books</h1>
       <Row>
         {
-            publicBooks.map(book => {
+            publicBooks && publicBooks.map(book => {
                 return(
                   <Col key={book._id} sm={12} md={6} lg={4} xl={3}>
                       <Book book={book} />
@@ -29,6 +29,7 @@ const Home = () => {
             })
         }
       </Row>
+      
     </>
   )
 }
