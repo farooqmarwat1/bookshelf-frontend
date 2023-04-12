@@ -19,9 +19,9 @@ const Book = ({ book }) => {
                         </Card.Title>
                     </Link>
 
-                    <Card.Text as='div' >Author: {book.author}</Card.Text>
+                    <Card.Text as='div' ><h5>Author:</h5> {book.author}</Card.Text>
 
-                    <Card.Text as='div' >Access: {book.access}</Card.Text>
+                    <Card.Text as='div' ><h5>Access:</h5> {book.access}</Card.Text>
 
                     <Card.Text as='div' >
                     <Rating value={book.rating} />
@@ -31,5 +31,8 @@ const Book = ({ book }) => {
         </>
     )
 };
+
+
+
 
 export default Book;
