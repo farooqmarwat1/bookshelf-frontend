@@ -1,5 +1,4 @@
 import React from 'react'
-import Button from '../../components/Button/Button';
 import { Link } from 'react-router-dom';
 
 function Login() {
@@ -12,7 +11,7 @@ function Login() {
                 <div class="row">
                     <div class="col-md-5 mx-auto">
                         <div class="card card-body rounded">
-                            <h1 class="text-center">Login Page </h1>    
+                            <h1 class="text-center"><i className='fas fa-user'></i>Login</h1>    
                             <form id="submitForm" action="/login" method="post" data-parsley-validate="" data-parsley-errors-messages-disabled="true" novalidate="" _lpchecked="1"><input type="hidden" name="_csrf" value="7635eb83-1f95-4b32-8788-abec2724a9a4"/>
                                 
                                 
@@ -24,7 +23,7 @@ function Login() {
                                     <input type="password" placeholder="Password" class="form-control" required="" id="password" name="password" value=""/>
                                 </div>
                                 <div class="form-group pt-1">
-                                    <button class="btn btn-primary btn-block" type="submit">Log In</button>
+                                    <button class="btn btn-dark btn-block" type="submit">Log In</button>
                                 </div>
                             </form>
                             <p class="small-xl pt-3 text-center">
