@@ -1,4 +1,5 @@
 import { PUBLIC_BOOKS_REQUEST, PUBLIC_BOOKS_SUCCESS, PUBLIC_BOOKS_FAIL } from "../constants/booksConstants";
+import { BOOK_DETAIL_REQUEST, BOOK_DETAIL_SUCCESS, BOOK_DETAIL_FAIL } from "../constants/booksConstants";
 
 export const publicBooksReducer = (state = { books: [] }, action) => {     // InitialState
     switch(action.type){   // Evaluate type in action object
@@ -12,3 +13,16 @@ export const publicBooksReducer = (state = { books: [] }, action) => {     // In
             return state;
     }
 }
+
+export const bookDetailReducer = (state = { book: {} }, action) => {     // InitialState
+    switch(action.type){   // Evaluate type in action object
+        case BOOK_DETAIL_REQUEST:
+            return { loading: true, ...state };      // Not Filled Yet
+        case BOOK_DETAIL_SUCCESS:
+            return { loading: false, book: action.payload };
+        case BOOK_DETAIL_FAIL:
+            return { loading: false, error: action.payload };
+        default:
+            return state;
+    }
+} 

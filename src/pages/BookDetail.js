@@ -1,26 +1,28 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import { Row, Col, ListGroup, Image, Card } from 'react-bootstrap';
 import { Link, useParams } from 'react-router-dom'
 import Rating from '../components/Rating';
-import axios from 'axios';
 import book1 from '../images/book1.png';
+import { useDispatch, useSelector } from 'react-redux';
+import { detailBook } from '../actions/bookActions';
+import Loader from '../components/Loader';
+import Message from '../components/Message';
 
 const BookDetail = () => {
   const { id } = useParams();
-  const [ book, setBook ] = useState({});
+
+  const dispatch = useDispatch();
+  const bookDetail = useSelector(state => state.bookDetail);
+  const { loading, error, book } = bookDetail;
 
   useEffect(() => {
-    const fetchPublicBook = async () => {
-      const { data } = await axios.get(`/api/books/${id}`);
-      setBook(data);
-    }
-    fetchPublicBook();
-  }, [id]); 
+    dispatch(detailBook(id));
+  }, [dispatch, id]); 
 
   return (
     <>
-     <Link classNamw='btn btn-light my-3' to='/' >Go Back</Link>
-     <Row>
+    <Link classNamw='btn btn-light my-3' to='/' >Go Back</Link>
+    { loading ? <Loader /> : error ? <Message variant='danger'>{error}</Message> : <Row>
         <Col md={6}>
           <Image style={{height:'450px',width: '400px'}} src={book1} alt={book.title} fluid />
         </Col>
@@ -45,6 +47,7 @@ const BookDetail = () => {
           </ListGroup>
         </Col>
      </Row>
+    }
     </>
   )
 }
