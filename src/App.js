@@ -5,7 +5,7 @@ import Footer from './components/Footer';
 import Home from './pages/Home';
 import Signup from './pages/Signup';
 import Login from './pages/Login'
-import BookDetail from './components/BookDetail';
+import BookDetail from './pages/BookDetail';
 
 function App() {
   return (
