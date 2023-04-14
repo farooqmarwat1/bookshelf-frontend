@@ -22,6 +22,7 @@ const Login = () => {
         e.preventDefault();
         // dispatch login
         dispatch(loginUser(email, password));
+        navigate('/');
     }
 
     return(
@@ -43,7 +44,7 @@ const Login = () => {
                 </Form.Group>
 
                 <div className='text-center'>
-                    <Button type='submit' variant='dark' onClick={() => navigate('/')}>Sign In</Button>
+                    <Button type='submit' variant='dark' >Sign In</Button>
                 </div>
 
                 <Row className='my-3 text-center'>
